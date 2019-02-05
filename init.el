@@ -1,5 +1,12 @@
 ;; -*- lexical-binding: t; -*-
 
+;; --------------
+;; Disable all mouse-interactive interfaces early.
+;; --------------
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 ;; ----------------
 ;; Configure package sources
 ;; ----------------
@@ -27,13 +34,6 @@
 ;; Corrects (and improves) org-mode's native fontification.
 (doom-themes-org-config)
 
-;; --------------
-;; Some settings for visual aesthetics
-;; --------------
-;; Hide the menu bar and the tool bar
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-
 ;; ---------------
 ;; Generic LSP Configuration
 ;; ---------------
@@ -48,11 +48,11 @@
 ;; ---------------
 ;; LSP Java Configuration
 ;; ---------------
-(use-package lsp-java :ensure t :after lsp
-  :config (add-hook 'java-mode-hook
+(use-package lsp-java :ensure t :after lsp)
+(add-hook 'java-mode-hook
 		    '(lambda () 
 		      (lsp)
-		      (flycheck-mode))))
+		      (flycheck-mode)))
 ;;(add-hook 'java-mode-hook 'flycheck-mode)
 
 ;;(use-package dap-mode
