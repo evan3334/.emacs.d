@@ -19,20 +19,19 @@
 ;; Configure themes
 ;; -----------------
 (require 'doom-themes)
+(require 'doom-modeline)
 
-;; Global settings (defaults)
-(setq doom-themes-enable-bold t    ; If nil, bold is universally disabled
-      doom-themes-enable-italic t) ; If nil, italics is universally disabled
+(defun doom-themes-configuration ()
+  "`doom-themes-configuraiton' is interactive by the modeline, it will
+start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
+  (interactive)
+  (load-theme 'doom-one t)
+  (setq doom-themes-enable-bold t      ; If nil, bold is universally disabled
+	doom-themes-enable-italic t)   ; If nil, italics is universally disabled
+  (doom-theme-org-config)
+  (doom-modeline-mode))
 
-;; Load the theme (doom-one, doom-molokai, etc); keep in mind that each theme
-;; may have its own settings.
-(load-theme 'doom-one t)
-
-;; Enable flashing mode-line on errors
-(doom-themes-visual-bell-config)
-
-;; Corrects (and improves) org-mode's native fontification.
-(doom-themes-org-config)
+(doom-themes-configuration) ; Execute `doom-themes-configuration'
 
 ;; ---------------
 ;; Generic LSP Configuration
