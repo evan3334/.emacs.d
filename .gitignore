@@ -1,2 +1,8 @@
 auto-save-list
 elpa
+eclipse.jdt.ls
+eshell
+workspace
+.cache
+*~
+.#*
