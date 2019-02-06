@@ -58,6 +58,15 @@ start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
 (doom-themes-configuration) ; Execute `doom-themes-configuration'
 
 ;; ---------------
+;; Generic configuration for all languages
+;; ---------------
+(require 'smartparens-config)
+(smartparens-global-mode)
+(add-hook 'prog-mode-hook
+	  '(lambda ()
+	     (company-mode)))
+
+;; ---------------
 ;; Generic LSP Configuration
 ;; ---------------
 (use-package projectile :ensure t)

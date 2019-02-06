@@ -9,7 +9,7 @@
  '(magit-commit-arguments (quote ("-S")))
  '(package-selected-packages
    (quote
-    (geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline))))
+    (smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
