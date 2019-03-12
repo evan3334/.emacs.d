@@ -90,6 +90,7 @@ start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
 (add-hook 'prog-mode-hook
 	  '(lambda ()
 	     (company-mode)
+	     (company-quickhelp-mode)
 	     (linum-mode)
 	     (rainbow-delimiters-mode)
 	     (column-enforce-mode)
