@@ -47,7 +47,9 @@
 ;; Configure themes
 ;; -----------------
 (require 'doom-themes)
+(require 'all-the-icons)
 (require 'doom-modeline)
+
 
 (defun doom-themes-configuration ()
   "`doom-themes-configuration' is interactive by the modeline, it will
@@ -62,6 +64,13 @@ start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
   (setq doom-modeline-buffer-file-name-style 'file-name))
 
 (doom-themes-configuration) ; Execute `doom-themes-configuration'
+
+;;(set-face-attribute 'default nil
+;;		    :family "Source Code Pro"
+;;		    :height 120
+;;		    :width 'normal
+;;		    :weight 'semi-bold)
+
 
 ;; ---------------
 ;; Generic configuration for all languages
@@ -94,7 +103,7 @@ start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
 ;; ---------------
 ;; Smartparens config for CC-like modes
 ;; ---------------
-(sp-with-modes '(java-mode c++-mode)
+(sp-with-modes '(java-mode c++-mode c-mode)
   (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
   (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
      					     (" ||\n[i]" "RET"))))
@@ -155,15 +164,32 @@ start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
 ;; ---------------
 ;; Cquery configuration (C/C++)
 ;; ---------------
-(require 'cquery)
-(setq cquery-executable "/usr/bin/cquery")
-(setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
-(defun cquery//enable ()
-  (condition-case nil
-      (lsp)
-    (user-error nil)))
-(add-hook 'c-mode-hook #'cquery//enable)
-(add-hook 'c++-mode-hook #'cquery//enable)
+;; (require 'cquery)
+;; (setq cquery-executable "/usr/bin/cquery")
+;; (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
+;; (defun cquery//enable ()
+;;   (condition-case nil
+;;       (lsp)
+;;     (user-error nil)))
+;; (add-hook 'c-mode-hook #'cquery//enable)
+;; (add-hook 'c++-mode-hook #'cquery//enable)
+(use-package ccls
+  :hook ((c-mode c++-mode objc-mode) .
+	 (lambda () (require 'ccls) (lsp))))
+(setq ccls-executable "/usr/local/bin/ccls")
+
+;; ---------------
+;; Scheme config
+;; ---------------
+(setq geiser-active-implementations '(guile))
+(require 'geiser)
+(add-hook 'scheme-mode-hook
+	  '(lambda ()
+	     (geiser-mode)))
+
+(add-hook 'geiser-repl-mode-hook
+	  '(lambda ()
+	     (rainbow-delimiters-mode)))
 
 ;; ---------------
 ;; Configure pdf-tools
@@ -172,4 +198,13 @@ start the nice defaults for `doom-one' and establish `doom-modeline-mode'."
 (add-hook 'pdf-view-mode-hook
 	  '(lambda ()
 	     (setq pdf-view-midnight-colors '("white" . "#1c1e1f"))
-	     (pdf-view-midnight-minor-mode)))
+	     (pdf-view-midnight-minor-mode)
+	     (linum-mode -1)))
+
+
+(defun open-dotfile ()
+  "Opens the init.el file quickly."
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+(global-set-key "\C-c\C-d" 'open-dotfile)
