@@ -47,6 +47,8 @@
 
 (setq modules-dir
       (expand-file-name "modules" user-emacs-directory))
+(setq thirdparty-dir
+      (expand-file-name "thirdparty" user-emacs-directory))
 
 (add-to-list 'load-path modules-dir)
 
@@ -55,11 +57,12 @@
   (interactive)
   (find-file "~/.emacs.d/init.el"))
 
-(global-set-key "\C-c\C-d" 'open-dotfile)
+(global-set-key "\C-cd" 'open-dotfile)
 
 (require 'module-appearance)
 (require 'module-lang-general)
 (require 'module-lang-java)
 (require 'module-lang-c-c++)
 (require 'module-lang-scheme)
+(require 'module-lang-web)
 (require 'module-pdf)
