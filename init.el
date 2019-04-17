@@ -65,4 +65,6 @@
 (require 'module-lang-c-c++)
 (require 'module-lang-scheme)
 (require 'module-lang-web)
+(require 'module-lang-python)
+(require 'module-lang-arduino)
 (require 'module-pdf)

@@ -10,7 +10,7 @@
  '(magit-commit-arguments (quote ("-S")))
  '(package-selected-packages
    (quote
-    (flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline))))
+    (company-arduino arduino-mode flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline))))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
