@@ -2,20 +2,6 @@
 		  '(lambda ()
 			 (setq tab-width 4)))
 
-;; ---------------
-;; Smartparens config for CC-like modes
-;; ---------------
-(sp-with-modes '(java-mode c++-mode c-mode)
-  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
-  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
-     					     (" ||\n[i]" "RET"))))
-;;  (sp-local-pair "/*" nil)
-;;  (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
-
-;;  (sp-local-pair "/**" "*/" :post-handlers '((" | " "SPC")
-;;					     (" ||\n[i]" "RET"))))
-
-
 (global-set-key "\C-c\C-n" 'flycheck-mode)
 
 ;; ---------------

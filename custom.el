@@ -6,11 +6,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(comment-padding "*  ")
+ '(dark-mode t)
  '(light-mode nil)
  '(magit-commit-arguments (quote ("-S")))
  '(package-selected-packages
    (quote
-    (company-arduino arduino-mode flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline))))
+    (utop ocp-indent merlin-eldoc merlin tuareg yaml-mode groovy-mode go-mode guix slime emojify restclient folding web-mode php-mode company-coq proof-general csv-mode company-arduino arduino-mode flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline)))
+ '(safe-local-variable-values
+   (quote
+    ((eval modify-syntax-entry 43 "'")
+     (eval modify-syntax-entry 36 "'")
+     (eval modify-syntax-entry 126 "'")
+     (bug-reference-bug-regexp . "<https?://\\(debbugs\\|bugs\\)\\.gnu\\.org/\\([0-9]+\\)>")))))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

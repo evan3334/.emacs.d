@@ -23,12 +23,17 @@
   :ensure t)
 (use-package impatient-mode
   :ensure t)
+(use-package php-mode
+  :ensure t)
 ;;(use-package flymd
 ;;  :ensure t)
 
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json\\'" . js-mode))
 
-(eval-after-load 'js2-mode
-  '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+(eval-after-load 'js2-mode (lambda ()
+  (define-key js2-mode-map (kbd "C-c b") 'web-beautify-js)
+  (define-key js2-mode-map (kbd "C-c C-r") 'lsp-rename)))
 ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
 (eval-after-load 'js
   '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
@@ -61,9 +66,17 @@
 	  (lambda ()
 	    (lsp)))
 
-(sp-with-modes '(css-mode js2-mode)
-  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET"))))
+(add-hook 'php-mode-hook
+	  (lambda ()
+	    (c-set-style "wordpress")))
 
+(add-hook 'sql-interactive-mode-hook
+          (lambda ()
+            (toggle-truncate-lines t)))
 
+(sp-with-modes '(css-mode js2-mode js-mode)
+  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
+     					     (" ||\n[i]" "RET"))))
 
 (provide 'module-lang-web)

@@ -13,6 +13,5 @@
 (use-package ccls
   :hook ((c-mode c++-mode objc-mode) .
 	 (lambda () (require 'ccls) (lsp))))
-(setq ccls-executable "/usr/local/bin/ccls")
 
 (provide 'module-lang-c-c++)

@@ -20,7 +20,7 @@
 (column-number-mode)
 
 ;; turn on warning at 95 columns
-(setq column-enforce-column 95)
+(defconst column-limit 95)
 
 ;; make company dialog show up sooner
 (setq company-idle-delay 0.1)
@@ -32,11 +32,28 @@
 	     (linum-mode)
 	     (rainbow-delimiters-mode)
 	     (column-enforce-mode)
+	     (setq column-enforce-column column-limit)
+	     (auto-fill-mode)
+	     (setq fill-column column-limit)
 	     (gradle-mode)))
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+;; ---------------
+;; Smartparens config for CC-like modes
+;; ---------------
+(sp-with-modes '(java-mode c++-mode c-mode go-mode groovy-mode)
+  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
+     					     (" ||\n[i]" "RET"))))
+;;  (sp-local-pair "/*" nil)
+;;  (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
+
+;;  (sp-local-pair "/**" "*/" :post-handlers '((" | " "SPC")
+;;					     (" ||\n[i]" "RET"))))
+
 
 (provide 'module-lang-general)

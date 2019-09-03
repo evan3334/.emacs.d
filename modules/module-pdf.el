@@ -2,6 +2,7 @@
 ;; PDF-Tools config
 ;; ---------------
 (use-package pdf-tools :ensure t)
+(setq pdf-info-epdfinfo-program "~/bin/epdfinfo")
 (pdf-tools-install)
 
 ;; ---------------

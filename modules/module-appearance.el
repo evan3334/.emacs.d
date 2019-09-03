@@ -5,7 +5,7 @@
 (require 'all-the-icons)
 (require 'doom-modeline)
 
-(defconst dark-theme 'doom-molokai)
+(defconst dark-theme 'doom-outrun-electric);;'doom-molokai)
 (defconst light-theme 'doom-tomorrow-day)
 
 
@@ -40,7 +40,7 @@ start the nice defaults for the theme and establish `doom-modeline-mode'."
 
 (defun dark-mode-toggle ()
   (interactive)
-  (if light-mode
+  (if dark-mode
       (dark-mode-off)
     (dark-mode-on)))
 
