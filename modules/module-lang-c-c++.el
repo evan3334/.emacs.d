@@ -1,17 +1,20 @@
 ;; ---------------
-;; Cquery configuration (C/C++)
+;; CCLS configuration (C/C++)
 ;; ---------------
-;; (require 'cquery)
-;; (setq cquery-executable "/usr/bin/cquery")
-;; (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
-;; (defun cquery//enable ()
-;;   (condition-case nil
-;;       (lsp)
-;;     (user-error nil)))
-;; (add-hook 'c-mode-hook #'cquery//enable)
-;; (add-hook 'c++-mode-hook #'cquery//enable)
+
 (use-package ccls
+  :ensure t
+  :defer t
   :hook ((c-mode c++-mode objc-mode) .
-	 (lambda () (require 'ccls) (lsp))))
+         (lambda ()
+	   (require 'ccls)
+	   (require 'yasnippet)
+	   (lsp))))
+
+(c-add-style
+ "sasha"
+ '("bsd"
+   (c-basic-offset . 4)
+   (c-offsets-alist . ((substatement-open . 0)))))
 
 (provide 'module-lang-c-c++)

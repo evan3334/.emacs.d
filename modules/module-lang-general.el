@@ -1,23 +1,66 @@
 ;; ---------------
 ;; Generic LSP Configuration
 ;; ---------------
-(use-package projectile :ensure t)
-(use-package neotree :ensure t)
-(use-package yasnippet :ensure t)
-(use-package lsp-mode :ensure t)
-(use-package hydra :ensure t)
-(use-package company-lsp :ensure t)
-(use-package lsp-ui :ensure t)
+(use-package projectile
+  :ensure t
+  :defer t)
+(use-package neotree
+  :ensure t
+  :defer t)
+(use-package lsp-mode
+  :ensure t
+  :defer t)
+(use-package hydra
+  :ensure t
+  :defer t)
+(use-package yasnippet
+  :ensure t
+  :defer t)
+(use-package company
+  :ensure
+  :defer t)
+(use-package company-lsp
+  :ensure t
+  :defer t
+  :after (company))
+(use-package company-quickhelp
+  :ensure t
+  :defer t
+  :after (company))
+(use-package lsp-ui
+  :ensure t
+  :defer t)
+(use-package magit
+  :ensure t
+  :defer t)
+(use-package smartparens
+  :ensure t
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode)
+  (sp-with-modes '(java-mode c++-mode c-mode go-mode groovy-mode)
+    (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+    (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
+     					       (" ||\n[i]" "RET"))))
+  (sp-with-modes '(css-mode js2-mode js-mode)
+    (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+    (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
+     					       (" ||\n[i]" "RET"))))
+  (sp-with-modes '(tuareg-mode utop-mode)
+    (sp-local-pair "(*" "*)" :post-handlers '(("| " "SPC")
+					      (" ||\n[i]" "RET")))))
 
 ;; ---------------
 ;; Generic configuration for all languages
 ;; ---------------
 
-(require 'smartparens-config)
 (use-package column-enforce-mode :ensure t)
-(smartparens-global-mode)
 (global-hl-line-mode)
 (column-number-mode)
+
+(use-package rainbow-delimiters
+  :ensure t
+  :defer t)
 
 ;; turn on warning at 95 columns
 (defconst column-limit 95)
@@ -45,10 +88,7 @@
 ;; ---------------
 ;; Smartparens config for CC-like modes
 ;; ---------------
-(sp-with-modes '(java-mode c++-mode c-mode go-mode groovy-mode)
-  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
-  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
-     					     (" ||\n[i]" "RET"))))
+
 ;;  (sp-local-pair "/*" nil)
 ;;  (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
 

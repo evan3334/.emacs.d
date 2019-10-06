@@ -23,11 +23,11 @@
 
 (use-package utop
   :ensure t
-  :hook (tuareg-mode . utop-setup-ocaml-buffer)
+  :hook (tuareg-mode . utop-minor-mode)
   :hook (utop-mode . company-mode))
 
-(sp-with-modes '(tuareg-mode utop-mode)
-  (sp-local-pair "(*" "*)" :post-handlers '(("| " "SPC")
-     					     (" ||\n[i]" "RET"))))
+(use-package dune
+  :ensure t
+  :defer t)
 
 (provide 'module-lang-ocaml)

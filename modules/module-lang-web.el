@@ -1,30 +1,12 @@
-;;(defvar tidy-path
-;;  (expand-file-name "tidy.el" thirdparty-dir))
-
-;;(use-package tidy
-;;  :load-path tidy-path
-;;  :commands (tidy-buffer
-;;  	     tidy-parse-config-file
-;;	     tidy-save-settings
-;;	     tidy-build-menu))
-
-;; (autoload 'tidy-buffer tidy-path "Run Tidy HTML parser on current buffer" t)
-;; (autoload 'tidy-parse-config-file tidy-path "Parse the `tidy-config-file'" t)
-;; (autoload 'tidy-save-settings tidy-path "Save settings to `tidy-config-file'" t)
-;; (autoload 'tidy-build-menu tidy-path "Install an options menu for HTML Tidy." t)
-
-;; (setq tidy-config-dir "")
-;; (setq tidy-temp-dir "")
-;;(setq tidy-shell-command "/usr/bin/tidy")
-;;(setq tidy-menu-lock t)
-;; (setq tidy-menu-x-position 211)
-
 (use-package web-beautify
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package impatient-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package php-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 ;;(use-package flymd
 ;;  :ensure t)
 
@@ -73,10 +55,5 @@
 (add-hook 'sql-interactive-mode-hook
           (lambda ()
             (toggle-truncate-lines t)))
-
-(sp-with-modes '(css-mode js2-mode js-mode)
-  (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
-  (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
-     					     (" ||\n[i]" "RET"))))
 
 (provide 'module-lang-web)

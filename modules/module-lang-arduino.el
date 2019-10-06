@@ -1,8 +1,6 @@
 (use-package arduino-mode
-  :ensure t)
-
-(add-hook 'arduino-mode-hook
-	  (lambda ()
-	    (flycheck-mode)))
+  :ensure t
+  :defer t
+  :hook (arduino-mode . flycheck-mode))
 
 (provide 'module-lang-arduino)

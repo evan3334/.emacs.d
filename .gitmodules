@@ -1,0 +1,3 @@
+[submodule "thirdparty/telega.el"]
+	path = thirdparty/telega.el
+	url = https://github.com/zevlg/telega.el

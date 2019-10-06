@@ -1,56 +1,55 @@
 ;; -----------------
 ;; Configure themes
 ;; -----------------
-(require 'doom-themes)
-(require 'all-the-icons)
-(require 'doom-modeline)
 
-(defconst dark-theme 'doom-outrun-electric);;'doom-molokai)
-(defconst light-theme 'doom-tomorrow-day)
+(defconst dark-theme 'doom-outrun-electric "The theme to use when in dark mode.")
+(defconst light-theme 'doom-tomorrow-day "The theme to use when not in dark mode.")
 
-
-(defcustom dark-mode t
+(defcustom use-dark-mode t
   "Whether or not 'dark mode' should be activated, which uses a dark theme instead
 of a light theme."
   :type '(boolean))
 
-(defun doom-themes-configuration ()
-  "`doom-themes-configuration' is interactive by the modeline, it will
-start the nice defaults for the theme and establish `doom-modeline-mode'."
-  (interactive)
-  (if dark-mode
+(defun doom-themes-init ()
+  (if use-dark-mode
       (load-theme dark-theme t)
     (load-theme light-theme t))
-  (setq doom-themes-enable-bold t      ; If nil, bold is universally disabled
-	doom-themes-enable-italic t)   ; If nil, italics is universally disabled
   (doom-themes-visual-bell-config)
-  (doom-themes-org-config)
-  (doom-modeline-mode)
-  (setq doom-modeline-buffer-file-name-style 'file-name))
+  (doom-themes-org-config))
 
 (defun dark-mode-on ()
   (interactive)
-  (customize-save-variable 'dark-mode t)
-  (doom-themes-configuration))
+  (customize-save-variable 'use-dark-mode t)
+  (doom-themes-init))
 
 (defun dark-mode-off ()
   (interactive)
-  (customize-save-variable 'dark-mode nil)
-  (doom-themes-configuration))
+  (customize-save-variable 'use-dark-mode nil)
+  (doom-themes-init))
 
 (defun dark-mode-toggle ()
   (interactive)
-  (if dark-mode
+  (if use-dark-mode
       (dark-mode-off)
     (dark-mode-on)))
 
-;;(set-face-attribute 'default nil
-;;		    :family "Source Code Pro"
-;;		    :height 120
-;;		    :width 'normal
-;;		    :weight 'semi-bold)
 
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t      ; If nil, bold is universally disabled
+	doom-themes-enable-italic t)   ; If nil, italics is universally disabled
+  (doom-themes-init))
 
-(doom-themes-configuration) ; Execute `doom-themes-configuration'
+(use-package all-the-icons
+  :ensure t
+  :after (doom-themes))
+
+(use-package doom-modeline
+  :ensure t
+  :config
+  (setq doom-modeline-buffer-file-name-style 'file-name)
+  (doom-modeline-mode)
+  :after (doom-themes all-the-icons))
 
 (provide 'module-appearance)

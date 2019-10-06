@@ -2,29 +2,31 @@
 ;; Scheme config
 ;; ---------------
 (setq geiser-active-implementations '(guile racket chicken))
-(require 'geiser)
+
+(use-package geiser
+  :ensure t
+  :defer t
+  :hook ((scheme-mode . (lambda ()
+			  (geiser-mode)
+			  (rainbow-delimiters-mode)
+			  (setup-prettify-symbols)))
+	 (geiser-repl-mode . (lambda ()
+			       (rainbow-delimiters-mode)
+			       (setup-prettify-symbols)))))
+
+(use-package racket-mode
+  :ensure t
+  :defer t
+  :mode "\\.rkt\\'"
+  :hook (racket-mode . (lambda ()
+			 (rainbow-delimiters-mode)
+			 (company-mode)
+			 (company-quickhelp-mode)
+			 (setup-prettify-symbols))))
 
 (defun setup-prettify-symbols ()
   (setq prettify-symbols-alist '(("lambda" . 955)
 				 ("->" . 8594)))
   (prettify-symbols-mode))
-
-(add-hook 'scheme-mode-hook
-	  '(lambda ()
-	     (geiser-mode)
-	     (setup-prettify-symbols)))
-
-(add-hook 'geiser-repl-mode-hook
-	  '(lambda ()
-	     (rainbow-delimiters-mode)
-	     (setup-prettify-symbols)))
-
-(add-hook 'racket-repl-mode-hook
-	  '(lambda ()
-	     (rainbow-delimiters-mode)	  
-	     (company-mode)
-	     (company-quickhelp-mode)
-	     (setup-prettify-symbols)))
-(add-to-list 'auto-mode-alist '("\\.rkt\\'" . racket-mode))
 
 (provide 'module-lang-scheme)
