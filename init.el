@@ -95,6 +95,7 @@ There are two things you can do about this warning:
 (require 'module-lang-ocaml)
 (require 'module-lang-lua)
 (require 'module-pdf)
+(require 'module-org)
 (require 'module-telegram)
 
 ;; ----------------
