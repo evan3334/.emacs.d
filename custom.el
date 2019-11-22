@@ -13,10 +13,20 @@
  '(dark-mode t)
  '(light-mode nil)
  '(magit-commit-arguments (quote ("-S")))
+ '(org-agenda-files
+   (quote
+    ("/home/evan/Sync/notes/automation.org" "/home/evan/Sync/notes/general.org" "/home/evan/Sync/school/current/19au/MATH308/math308.org" "/home/evan/Sync/school/current/19au/MUS120/notes/9-25-19.org" "/home/evan/Sync/school/current/19au/MUS120/music120.org" "/home/evan/Sync/school/current/19au/PHYS122/notes/9-25-19.org" "/home/evan/Sync/school/current/19au/PHYS122/phys122.org")))
  '(package-selected-packages
    (quote
-    (telega lua-mode dune hydra all-the-icons markdown-mode+ utop ocp-indent merlin-eldoc merlin tuareg yaml-mode groovy-mode go-mode guix slime emojify restclient folding web-mode php-mode company-coq proof-general csv-mode company-arduino arduino-mode flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline)))
- '(safe-local-variable-values))
+    (emms telega lua-mode dune hydra all-the-icons markdown-mode+ utop ocp-indent merlin-eldoc merlin tuareg yaml-mode groovy-mode go-mode guix slime emojify restclient folding web-mode php-mode company-coq proof-general csv-mode company-arduino arduino-mode flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline)))
+ '(safe-local-variable-values
+   (quote
+    ((column-enforce-column 95)
+     (geiser-guile-load-path quote
+			     ("~/Sync/code/guix"))
+     (eval modify-syntax-entry 43 "'")
+     (eval modify-syntax-entry 36 "'")
+     (eval modify-syntax-entry 126 "'")))))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

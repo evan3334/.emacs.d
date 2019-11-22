@@ -6,3 +6,11 @@ workspace
 .cache
 *~
 .#*
+session.*
+*.sync-conflict*
+.lsp*
+emms
+emojis
+games
+/gtkrc
+*.elc
