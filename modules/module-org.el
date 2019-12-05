@@ -15,8 +15,10 @@ result as a list of file paths, represented as strings."
 	 '("~/Sync/notes/")
 	 (org-agenda-search-directory "~/Sync/school/current")))
   
-  (setq org-agenda-start-on-weekday 6)
-  (setq org-deadline-warning-days 6)
+  (setq org-agenda-start-on-weekday 6
+	org-deadline-warning-days 6
+	org-columns-default-format "%ITEM %TODO %3PRIORITY %CLOCKSUM(Time) %Effort %TAGS")
+  
   (let ((scale 1.5))
     (setq org-format-latex-options
 	(plist-put (plist-put org-format-latex-options :html-scale scale) :scale scale))))
