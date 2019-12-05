@@ -9,7 +9,6 @@
 (use-package geiser
   :ensure t
   :defer t
-  :init (add-to-list 'geiser-guile-load-path guix-checkout)
   :hook ((scheme-mode . (lambda ()
 			  (geiser-mode)
 			  (rainbow-delimiters-mode)
@@ -18,12 +17,15 @@
 			       (rainbow-delimiters-mode)
 			       (setup-prettify-symbols)))))
 
+(with-eval-after-load 'geiser-guile
+  (add-to-list 'geiser-guile-load-path guix-checkout))
+
 (use-package yasnippet
   :ensure t
   :defer t
-  :config (add-to-list 'yas-snippet-dirs (concat guix-checkout "/etc/snippets"))
-  :hook ((scheme-mode . yas-minor-mode-on)
-	 (geiser-repl-mode . yas-minor-mode-on)))
+  :config
+  (add-to-list 'yas-snippet-dirs (concat guix-checkout "/etc/snippets"))
+  (yas-global-mode))
 
 (use-package racket-mode
   :ensure t
