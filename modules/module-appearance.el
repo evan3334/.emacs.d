@@ -1,9 +1,14 @@
 ;; -----------------
+;; Configure fonts
+;; -----------------
+
+
+;; -----------------
 ;; Configure themes
 ;; -----------------
 
-(defconst dark-theme 'doom-outrun-electric "The theme to use when in dark mode.")
-(defconst light-theme 'doom-tomorrow-day "The theme to use when not in dark mode.")
+(defvar dark-theme 'doom-outrun-electric "The theme to use when in dark mode.")
+(defvar light-theme 'doom-tomorrow-day "The theme to use when not in dark mode.")
 
 (defcustom use-dark-mode t
   "Whether or not 'dark mode' should be activated, which uses a dark theme instead
@@ -32,7 +37,6 @@ of a light theme."
   (if use-dark-mode
       (dark-mode-off)
     (dark-mode-on)))
-
 
 (use-package doom-themes
   :ensure t
