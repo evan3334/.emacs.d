@@ -16,6 +16,10 @@ result as a list of file paths, represented as strings."
 	 (org-agenda-search-directory "~/Sync/school/current")))
   
   (setq org-agenda-start-on-weekday 6)
-  (setq org-deadline-warning-days 6))
+  (setq org-deadline-warning-days 6)
+  (let ((scale 1.5))
+    (setq org-format-latex-options
+	(plist-put (plist-put org-format-latex-options :html-scale scale) :scale scale))))
+
 
 (provide 'module-org)
