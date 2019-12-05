@@ -1,6 +1,7 @@
 (use-package clang-format
   :ensure t
-  :defer t)
+  :defer t
+  :bind ("C-c C-f" . clang-format-buffer))
 
 ;; ---------------
 ;; CCLS configuration (C/C++)
@@ -9,13 +10,10 @@
 (use-package ccls
   :ensure t
   :defer t
-  :after (clang-format)
   :hook ((c-mode c++-mode objc-mode) .
          (lambda ()
 	   (require 'ccls)
 	   (require 'yasnippet)
-	   (require 'clang-format)
-	   (local-set-key (kbd "C-c C-f") clang-format-buffer)
 	   (lsp))))
 
 
