@@ -97,6 +97,7 @@ There are two things you can do about this warning:
 (require 'module-pdf)
 (require 'module-org)
 (require 'module-telegram)
+(require 'module-email)
 
 ;; ----------------
 ;; Return GC threshold to normal
