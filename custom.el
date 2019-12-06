@@ -26,7 +26,8 @@
 			     ("~/Sync/code/guix"))
      (eval modify-syntax-entry 43 "'")
      (eval modify-syntax-entry 36 "'")
-     (eval modify-syntax-entry 126 "'")))))
+     (eval modify-syntax-entry 126 "'"))))
+ '(use-dark-mode t))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -56,4 +56,11 @@ of a light theme."
   (doom-modeline-mode)
   :after (doom-themes all-the-icons))
 
+(use-package org
+  :defer t
+  :ensure t
+  :config
+  (set-face-attribute 'org-column nil :background nil)
+  (set-face-attribute 'org-column-title nil :background nil))
+
 (provide 'module-appearance)
