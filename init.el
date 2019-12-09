@@ -98,6 +98,7 @@ There are two things you can do about this warning:
 (require 'module-org)
 (require 'module-telegram)
 (require 'module-email)
+(require 'module-misc)
 
 ;; ----------------
 ;; Return GC threshold to normal
