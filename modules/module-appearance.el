@@ -8,7 +8,7 @@
 ;; -----------------
 
 (defvar dark-theme 'doom-outrun-electric "The theme to use when in dark mode.")
-(defvar light-theme 'doom-tomorrow-day "The theme to use when not in dark mode.")
+(defvar light-theme 'doom-acario-light "The theme to use when not in dark mode.")
 
 (defcustom use-dark-mode t
   "Whether or not 'dark mode' should be activated, which uses a dark theme instead
