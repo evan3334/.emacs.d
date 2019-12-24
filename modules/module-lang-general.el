@@ -1,40 +1,56 @@
 ;; ---------------
+;; Enable commands disabled by default
+;; ---------------
+(put 'downcase-region 'disabled nil)
+
+;; ---------------
 ;; Generic LSP Configuration
 ;; ---------------
 (use-package projectile
-  :ensure t
   :defer t)
+
 (use-package neotree
-  :ensure t
   :defer t)
+
 (use-package lsp-mode
-  :ensure t
   :defer t)
+
 (use-package hydra
-  :ensure t
   :defer t)
+
 (use-package yasnippet
-  :ensure t
-  :defer t)
+  :defer t
+  :config
+  (yas-global-mode))
+
 (use-package company
-  :ensure
-  :defer t)
+  :defer t
+  :config
+  (setq company-idle-delay 0.1)
+  :hook (prog-mode . company-mode)
+  :bind (:map company-active-map
+	      ("M-n" . nil)
+	      ("M-p" . nil)
+	      ("C-n" . company-select-next)
+	      ("C-p" . company-select-previous)))
+
 (use-package company-lsp
-  :ensure t
   :defer t
   :after (company))
+
 (use-package company-quickhelp
-  :ensure t
   :defer t
-  :after (company))
+  :after (company)
+  :hook (prog-mode . company-quickhelp-mode))
+
 (use-package lsp-ui
-  :ensure t
-  :defer t)
+  :defer t
+  :after (lsp-mode))
+
 (use-package magit
-  :ensure t
   :defer t)
+
 (use-package smartparens
-  :ensure t
   :config
   (require 'smartparens-config)
   (smartparens-global-mode)
@@ -54,46 +70,29 @@
 ;; Generic configuration for all languages
 ;; ---------------
 
-(use-package column-enforce-mode :ensure t)
+(use-package column-enforce-mode
+  :defer t
+  :ensure t
+  :config
+  (setq column-enforce-column 95)
+  :hook prog-mode)
+
 (global-hl-line-mode)
 (column-number-mode)
 
 (use-package rainbow-delimiters
+  :defer t
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package gradle-mode
+  :defer t
   :ensure t
-  :defer t)
-
-;; turn on warning at 95 columns
-(defconst column-limit 95)
-
-;; make company dialog show up sooner
-(setq company-idle-delay 0.1)
+  :hook prog-mode)
 
 (add-hook 'prog-mode-hook
 	  '(lambda ()
-	     (company-mode)
-	     (company-quickhelp-mode)
 	     (linum-mode)
-	     (rainbow-delimiters-mode)
-	     (column-enforce-mode)
-	     (setq column-enforce-column column-limit)
 	     (auto-fill-mode)
-	     (setq fill-column column-limit)
-	     (gradle-mode)))
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-n") #'company-select-next)
-  (define-key company-active-map (kbd "C-p") #'company-select-previous))
-
-;; ---------------
-;; Smartparens config for CC-like modes
-;; ---------------
-
-;;  (sp-local-pair "/*" nil)
-;;  (sp-local-pair "/*" "*/" :post-handlers '((" | " "SPC")
-
-;;  (sp-local-pair "/**" "*/" :post-handlers '((" | " "SPC")
-;;					     (" ||\n[i]" "RET"))))
-
+	     (setq fill-column 95)))
 
 (provide 'module-lang-general)

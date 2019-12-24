@@ -104,4 +104,3 @@ There are two things you can do about this warning:
 ;; Return GC threshold to normal
 ;; ----------------
 (setq gc-cons-threshold 800000)
-(put 'downcase-region 'disabled nil)
