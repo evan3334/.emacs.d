@@ -1,5 +1,4 @@
 (use-package clang-format
-  :ensure t
   :defer t
   :bind ("C-c C-f" . clang-format-buffer))
 
@@ -8,7 +7,6 @@
 ;; ---------------
 
 (use-package ccls
-  :ensure t
   :defer t
   :hook ((c-mode c++-mode objc-mode) .
          (lambda ()

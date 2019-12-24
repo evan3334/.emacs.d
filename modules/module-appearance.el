@@ -39,18 +39,15 @@ of a light theme."
     (dark-mode-on)))
 
 (use-package doom-themes
-  :ensure t
   :config
   (setq doom-themes-enable-bold t      ; If nil, bold is universally disabled
 	doom-themes-enable-italic t)   ; If nil, italics is universally disabled
   (doom-themes-init))
 
 (use-package all-the-icons
-  :ensure t
   :after (doom-themes))
 
 (use-package doom-modeline
-  :ensure t
   :config
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (doom-modeline-mode)
@@ -58,7 +55,6 @@ of a light theme."
 
 (use-package org
   :defer t
-  :ensure t
   :config
   (set-face-attribute 'org-column nil :background nil)
   (set-face-attribute 'org-column-title nil :background nil))

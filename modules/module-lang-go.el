@@ -1,5 +1,4 @@
 (use-package go-mode
-  :ensure t
   :defer t
   :bind (("C-c C-r" . lsp-rename)
 	 ("C-c C-p" . lsp-format-buffer))

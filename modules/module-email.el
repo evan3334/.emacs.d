@@ -1,5 +1,4 @@
 (use-package gitpatch
-  :ensure t
   :defer t)
 
 (require 'gnus)

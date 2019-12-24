@@ -23,6 +23,8 @@
 
 (use-package utop
   :ensure t
+  :defer t
+  :after (company)
   :hook (tuareg-mode . utop-minor-mode)
   :hook (utop-mode . company-mode))
 
