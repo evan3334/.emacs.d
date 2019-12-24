@@ -10,6 +10,9 @@
    (quote
     ("--log-file=/tmp/ccls.log" "-v=1" "--init={\"compilationDatabaseDirectory\": \"build\"}")))
  '(comment-padding "*  ")
+ '(custom-safe-themes
+   (quote
+    ("9d54f3a9cf99c3ffb6ac8e84a89e8ed9b8008286a81ef1dbd48d24ec84efb2f1" "a4fa3280ffa1f2083c5d4dab44a7207f3f7bcb76e720d304bd3bd640f37b4bef" "de43de35da390617a5b3e39b6b27c107cc51271eb95cceb1f43d13d9647c911d" "fe76f3d5094967034192f6a505085db8db6deb0e135749d9a54dc488d6d3ee2f" default)))
  '(dark-mode t)
  '(light-mode nil)
  '(magit-commit-arguments (quote ("-S")))
@@ -27,7 +30,8 @@
      (eval modify-syntax-entry 43 "'")
      (eval modify-syntax-entry 36 "'")
      (eval modify-syntax-entry 126 "'"))))
- '(use-dark-mode t))
+ '(use-dark-mode t)
+ '(yas-global-mode t))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
