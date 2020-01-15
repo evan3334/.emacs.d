@@ -22,6 +22,7 @@
  '(package-selected-packages
    (quote
     (gitpatch gitpatch-send-email emms telega lua-mode dune hydra all-the-icons markdown-mode+ utop ocp-indent merlin-eldoc merlin tuareg yaml-mode groovy-mode go-mode guix slime emojify restclient folding web-mode php-mode company-coq proof-general csv-mode company-arduino arduino-mode flymd impatient-mode web-beautify ein auctex pandoc-mode neotree racket-mode company-quickhelp clang-format ccls cquery column-enforce-mode rainbow-delimiters pdf-tools gradle-mode smartparens geiser yasnippet-snippets yasnippet projectile use-package treemacs lsp-java flycheck lsp-ui company-lsp company lsp-mode magit doom-themes doom-modeline)))
+ '(pdf-view-midnight-colors (cons "#0c0a20" "#f2f3f7"))
  '(safe-local-variable-values
    (quote
     ((column-enforce-column 95)
@@ -30,8 +31,7 @@
      (eval modify-syntax-entry 43 "'")
      (eval modify-syntax-entry 36 "'")
      (eval modify-syntax-entry 126 "'"))))
- '(use-dark-mode t)
- '(yas-global-mode t))
+ '(use-dark-mode t))
  
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

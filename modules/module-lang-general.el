@@ -7,24 +7,27 @@
 ;; Generic LSP Configuration
 ;; ---------------
 (use-package projectile
-  :defer t)
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
 
 (use-package neotree
-  :defer t)
+  :commands (neotree))
 
 (use-package lsp-mode
-  :defer t)
-
-(use-package hydra
-  :defer t)
+  :commands (lsp)
+  :config
+  (setq lsp-file-watch-threshold 3000)
+  (use-package lsp-ui)
+  (use-package hydra)
+  (use-package company-lsp))
 
 (use-package yasnippet
-  :defer t
-  :config
-  (yas-global-mode))
+  :commands (yas-minor-mode)
+  :hook ((prog-mode . yas-minor-mode))
+  :magic ("COMMIT_EDITMSG" . yas-minor-mode))
 
 (use-package company
-  :defer t
+  :commands (company-mode)
   :config
   (setq company-idle-delay 0.1)
   :hook (prog-mode . company-mode)
@@ -34,21 +37,13 @@
 	      ("C-n" . company-select-next)
 	      ("C-p" . company-select-previous)))
 
-(use-package company-lsp
-  :defer t
-  :after (company))
-
 (use-package company-quickhelp
-  :defer t
   :after (company)
   :hook (prog-mode . company-quickhelp-mode))
 
-(use-package lsp-ui
-  :defer t
-  :after (lsp-mode))
-
 (use-package magit
-  :defer t)
+  :commands (magit-status
+	     magit-commit))
 
 (use-package smartparens
   :config
@@ -71,7 +66,7 @@
 ;; ---------------
 
 (use-package column-enforce-mode
-  :defer t
+  :commands (column-enforce-mode)
   :ensure t
   :config
   (setq column-enforce-column 95)
@@ -81,12 +76,12 @@
 (column-number-mode)
 
 (use-package rainbow-delimiters
-  :defer t
+  :commands (rainbow-delimiters-mode)
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package gradle-mode
-  :defer t
   :ensure t
+  :commands (gradle-mode)
   :hook prog-mode)
 
 (add-hook 'prog-mode-hook

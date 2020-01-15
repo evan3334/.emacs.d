@@ -1,4 +1,5 @@
 (use-package org
+  :commands (org-agenda)
   :config
   (defun org-agenda-search-directory (dir)
     "Recursively searches the given directory and all subdirectories for 

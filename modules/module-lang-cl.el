@@ -1,6 +1,7 @@
 (use-package slime
   :config
   (add-to-list 'slime-contribs 'slime-repl)
-  :defer t)
+  (setq inferior-lisp-program "sbcl")
+  :commands (slime slime-connect))
 
 (provide 'module-lang-cl)

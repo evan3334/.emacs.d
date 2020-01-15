@@ -54,7 +54,7 @@ of a light theme."
   :after (doom-themes all-the-icons))
 
 (use-package org
-  :defer t
+  :commands (org-agenda)
   :config
   (set-face-attribute 'org-column nil :background nil)
   (set-face-attribute 'org-column-title nil :background nil))

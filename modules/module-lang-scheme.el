@@ -1,35 +1,32 @@
 ;; ---------------
 ;; Scheme config
 ;; ---------------
-(setq geiser-active-implementations '(guile racket chicken))
+
 
 (defvar guix-checkout "~/Sync/code/guix"
   "The location of the local Guix checkout.")
 
 (use-package geiser
-  :ensure t
-  :defer t
+  :commands (geiser
+	     run-geiser)
+  :init
+  (setq geiser-active-implementations '(guile racket chicken))
+  (with-eval-after-load 'geiser-guile
+    (add-to-list 'geiser-guile-load-path guix-checkout))
   :hook ((scheme-mode . (lambda ()
-			  (geiser-mode)
+			  (geiser)
 			  (rainbow-delimiters-mode)
 			  (setup-prettify-symbols)))
 	 (geiser-repl-mode . (lambda ()
 			       (rainbow-delimiters-mode)
 			       (setup-prettify-symbols)))))
 
-(with-eval-after-load 'geiser-guile
-  (add-to-list 'geiser-guile-load-path guix-checkout))
-
 (use-package yasnippet
-  :ensure t
-  :defer t
+  :commands (yas-minor-mode)
   :config
-  (add-to-list 'yas-snippet-dirs (concat guix-checkout "/etc/snippets"))
-  (yas-global-mode))
+  (add-to-list 'yas-snippet-dirs (concat guix-checkout "/etc/snippets")))
 
 (use-package racket-mode
-  :ensure t
-  :defer t
   :mode "\\.rkt\\'"
   :hook (racket-mode . (lambda ()
 			 (rainbow-delimiters-mode)

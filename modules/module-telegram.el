@@ -1,14 +1,8 @@
-(setq telega-dir
-      (expand-file-name "telega.el" thirdparty-dir))
-
 (use-package emojify
-  :defer t)
+  :commands (emojify-mode))
 
 (use-package telega
-  ;;  :load-path telega-dir
-  :after (emojify)
   :commands (telega)
   :hook ((telega-root-mode . emojify-mode)
-	 (telega-chat-mode . emojify-mode))
-  :defer t)
+	 (telega-chat-mode . emojify-mode)))
 (provide 'module-telegram)
