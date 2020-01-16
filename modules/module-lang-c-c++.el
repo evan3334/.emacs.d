@@ -5,7 +5,9 @@
    '("bsd"
      (c-basic-offset . 4)
      (c-offsets-alist . ((substatement-open . 0)
-			 (innamespace . 0))))))
+			 (innamespace . 0)
+			 (inclass . ++)
+			 (access-label . -))))))
 
 (use-package clang-format
   :commands (clang-format-buffer
