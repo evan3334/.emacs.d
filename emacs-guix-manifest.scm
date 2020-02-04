@@ -34,4 +34,5 @@
    "emacs-geiser"
    "emacs-racket-mode"
    "emacs-pdf-tools"
+   "emacs-debbugs"
    "emacs-ccls"))
