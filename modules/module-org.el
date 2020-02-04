@@ -1,5 +1,31 @@
-(use-package org
+(defun org-get-agenda-file-buffers ()
+  "Returns all open agenda file buffers."
+  (mapcar (lambda (file)
+	    (org-get-agenda-file-buffer file))
+	  org-agenda-files))
+
+(defun org-agenda-revert-all ()
+  "Reverts all Org buffers used for the Org agenda, reloading them from disk."
+  (interactive)
+  (mapcar (lambda (buf)
+	    (with-current-buffer buf
+	      (revert-buffer t t)))
+	  (org-get-agenda-file-buffers)))
+
+(defun org-agenda-redo-or-revert (&optional revert)
+  "Rebuild all agenda views in the current buffer.
+With a prefix argument, revert all agenda buffers before doing so."
+  (interactive "P")
+  (if revert
+      (progn
+	(org-agenda-revert-all)
+	(org-agenda-redo-all))
+    (org-agenda-redo-all)))
+
+(use-package org-agenda
   :commands (org-agenda)
+  :bind (:map org-agenda-mode-map
+  	      ("g" . org-agenda-redo-or-revert))
   :config
   (defun org-agenda-search-directory (dir)
     "Recursively searches the given directory and all subdirectories for 
@@ -18,8 +44,10 @@ result as a list of file paths, represented as strings."
   
   (setq org-agenda-start-on-weekday 6
 	org-deadline-warning-days 6
-	org-columns-default-format "%ITEM %TODO %3PRIORITY %CLOCKSUM(Time) %Effort %TAGS")
-  
+	org-columns-default-format "%ITEM %TODO %3PRIORITY %CLOCKSUM(Time) %Effort %TAGS"))
+
+(use-package org
+  :config
   (let ((scale 1.5))
     (setq org-format-latex-options
 	(plist-put (plist-put org-format-latex-options :html-scale scale) :scale scale))))
