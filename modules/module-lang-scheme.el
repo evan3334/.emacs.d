@@ -14,7 +14,7 @@
   (with-eval-after-load 'geiser-guile
     (add-to-list 'geiser-guile-load-path guix-checkout))
   :hook ((scheme-mode . (lambda ()
-			  (geiser)
+			  (geiser-mode)
 			  (rainbow-delimiters-mode)
 			  (setup-prettify-symbols)))
 	 (geiser-repl-mode . (lambda ()
@@ -28,11 +28,11 @@
 
 (use-package racket-mode
   :mode "\\.rkt\\'"
-  :hook (racket-mode . (lambda ()
-			 (rainbow-delimiters-mode)
-			 (company-mode)
-			 (company-quickhelp-mode)
-			 (setup-prettify-symbols))))
+  :hook (((racket-mode
+	   racket-repl-mode) . (lambda ()
+				 (rainbow-delimiters-mode)
+				 (company-mode)
+				 (setup-prettify-symbols)))))
 
 (defun setup-prettify-symbols ()
   (setq prettify-symbols-alist '(("lambda" . 955)
