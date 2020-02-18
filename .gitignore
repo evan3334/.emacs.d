@@ -14,3 +14,4 @@ emojis
 games
 /gtkrc
 *.elc
+/custom.el

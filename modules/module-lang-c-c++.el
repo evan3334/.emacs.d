@@ -6,8 +6,8 @@
      (c-basic-offset . 4)
      (c-offsets-alist . ((substatement-open . 0)
 			 (innamespace . 0)
-			 (inclass . ++)
-			 (access-label . -))))))
+			 (inclass . +)
+			 (access-label . --))))))
 
 (use-package clang-format
   :commands (clang-format-buffer
@@ -18,7 +18,11 @@
 ;; ---------------
 
 (use-package ccls
-  :init (c-style-setup)
+  :init
+  ;; set up c styles
+  (c-style-setup)
+  ;; make it safe to set ccls-args in .dir-locals.el files
+  (put 'ccls-args 'safe-local-variable #'listp)
   :config (setq ccls-executable "/usr/local/bin/ccls")
   :bind (:map c-mode-map
 	 ("C-c C-f" . clang-format-buffer)

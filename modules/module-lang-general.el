@@ -41,10 +41,6 @@
   :after (company)
   :hook (prog-mode . company-quickhelp-mode))
 
-(use-package magit
-  :commands (magit-status
-	     magit-commit))
-
 (use-package smartparens
   :config
   (require 'smartparens-config)

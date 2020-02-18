@@ -10,6 +10,7 @@
   :commands (geiser
 	     run-geiser)
   :init
+  (put 'geiser-guile-load-path 'safe-local-variable #'listp)
   (setq geiser-active-implementations '(guile racket chicken))
   (with-eval-after-load 'geiser-guile
     (add-to-list 'geiser-guile-load-path guix-checkout))

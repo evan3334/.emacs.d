@@ -86,6 +86,7 @@ There are two things you can do about this warning:
 (global-set-key "\C-cd" 'open-dotfile)
 
 (require 'module-appearance)
+(require 'module-git)
 (require 'module-lang-general)
 (require 'module-lang-java)
 (require 'module-lang-c-c++)
