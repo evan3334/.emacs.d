@@ -22,9 +22,15 @@
   (use-package company-lsp))
 
 (use-package yasnippet
+  :config
+  (defun yas-commit-editmsg ()
+    (when (string= (buffer-name) "COMMIT_EDITMSG")
+      (yas-minor-mode-on)))
+  (add-to-list 'yas-snippet-dirs "~/.guix-profile/share/emacs/yasnippet-snippets")
   :commands (yas-minor-mode)
-  :hook ((prog-mode . yas-minor-mode))
-  :magic ("COMMIT_EDITMSG" . yas-minor-mode))
+  :hook ((prog-mode . yas-minor-mode)
+	 (text-mode . yas-commit-editmsg)
+	 (yas-minor-mode . yas-reload-all)))
 
 (use-package company
   :commands (company-mode)
@@ -45,7 +51,7 @@
   :config
   (require 'smartparens-config)
   (smartparens-global-mode)
-  (sp-with-modes '(java-mode c++-mode c-mode go-mode groovy-mode)
+  (sp-with-modes '(java-mode c++-mode c-mode go-mode groovy-mode arduino-mode)
     (sp-local-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
     (sp-local-pair "/**" "*/" :post-handlers '(("| " "SPC")
      					       (" ||\n[i]" "RET"))))
@@ -85,5 +91,8 @@
 	     (linum-mode)
 	     (auto-fill-mode)
 	     (setq fill-column 95)))
+
+(use-package realgud
+  :commands (realgud:gdb))
 
 (provide 'module-lang-general)

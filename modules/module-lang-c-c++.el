@@ -22,8 +22,15 @@
   ;; set up c styles
   (c-style-setup)
   ;; make it safe to set ccls-args in .dir-locals.el files
-  (put 'ccls-args 'safe-local-variable #'listp)
-  :config (setq ccls-executable "/usr/local/bin/ccls")
+  ;;(put 'ccls-args 'safe-local-variable #'listp)
+  :config
+  (setq ccls-executable "/usr/bin/ccls")
+  (setq company-minimum-prefix-length 1
+	company-idle-delay 0.0)
+  (setq ccls-args '("--log-file=/tmp/ccls.log"
+		    "-v=1"))
+  ;;		    "--init={\"compilationDatabaseDirectory\": \"build\"}"))
+  ;;(setq ccls-initialization-options '(:clang (:extraArgs '("--gcc-toolchain" "/usr"))))
   :bind (:map c-mode-map
 	 ("C-c C-f" . clang-format-buffer)
 	 :map c++-mode-map
@@ -32,5 +39,7 @@
          (lambda ()
 	   (require 'ccls)
 	   (lsp))))
+
+(use-package cmake-mode)
 
 (provide 'module-lang-c-c++)

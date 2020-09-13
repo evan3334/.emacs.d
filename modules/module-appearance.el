@@ -47,10 +47,22 @@ of a light theme."
 (use-package all-the-icons
   :after (doom-themes))
 
+(use-package flymake
+  :config (set-face-attribute 'flymake-warning nil :underline '(:color "yellow" :style wave)))
+
 (use-package doom-modeline
+  :init
+  (defun doom-modeline-daemon (_frame)
+    "`doom-modeline' strangely does not behave in a daemon-session.
+So we need to fix this ourselves."
+    (setq doom-modeline-icon t)
+    (setq doom-modeline-height 35)
+    (message "doom-modeline fixed"))
+  (add-hook 'after-make-frame-functions #'doom-modeline-daemon)
   :config
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (doom-modeline-mode)
+  (doom-modeline-refresh-bars)
   :after (doom-themes all-the-icons))
 
 (use-package org
@@ -58,5 +70,8 @@ of a light theme."
   :config
   (set-face-attribute 'org-column nil :background nil)
   (set-face-attribute 'org-column-title nil :background nil))
+
+;; allow splitting narrower windows
+(setq split-width-threshold 154)
 
 (provide 'module-appearance)

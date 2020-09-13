@@ -4,11 +4,9 @@
 
 (use-package tuareg
   :ensure t
-  :commands (tuareg-imenu-set-imenu
-	     tuareg-mode)
+  :commands (tuareg-mode)
   :mode (("\\.ml[ily]?$" . tuareg-mode)
-	 ("\\.topml$" . tuareg-mode))
-  :hook (tuareg-mode . tuareg-imenu-set-imenu))
+	 ("\\.topml$" . tuareg-mode)))
 
 (use-package merlin
   :ensure t

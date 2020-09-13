@@ -5,7 +5,8 @@
 (require 'gnus)
 (setq gnus-select-method '(nnnil ""))
 (setq gnus-secondary-select-methods '((nnml "")
-				      (nnimap "imap.gmail.com")))
+				      (nnimap "imap.gmail.com")
+				      (nntp "news.gwene.org")))
 
 (setq user-full-name "Evan Straw"
       user-mail-address "evan.straw99@gmail.com")
@@ -19,6 +20,9 @@
 
 (setq gnus-buttonized-mime-types '("multipart/signed"))
 (setq mm-verify-option 'always)
+
+(setq gnus-thread-sort-functions
+      '(gnus-thread-sort-by-most-recent-date))
 
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 (add-hook 'gnus-article-mode-hook 'emojify-mode)

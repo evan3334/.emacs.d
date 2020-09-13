@@ -48,9 +48,20 @@ result as a list of file paths, represented as strings."
 
 (use-package org
   :config
+  (add-to-list 'org-export-backends 'md)
+  (require 'org-habit)
+  (setq org-habit-graph-column 55)
+  (setq org-habit-show-habits-only-for-today nil)
   (let ((scale 1.5))
     (setq org-format-latex-options
-	(plist-put (plist-put org-format-latex-options :html-scale scale) :scale scale))))
+	  (plist-put (plist-put org-format-latex-options :html-scale scale) :scale scale)))
+  (setq org-tag-persistent-alist
+	'((:startgroup . nil)
+	  ("class" . ?c)
+	  ("homework" . ?h)
+	  ("project" . ?p)
+	  ("event" . ?e)
+	  (:endgroup . nil))))
 
 
 (provide 'module-org)

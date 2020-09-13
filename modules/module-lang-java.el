@@ -16,6 +16,7 @@
 		      (flycheck-mode)
 		      (local-set-key "\C-c\C-g" 'gradle-run)
 		      (local-set-key "\C-c\C-r" 'lsp-rename)
+		      (local-set-key (kbd "C-c RET") 'lsp-execute-code-action)
 		      (local-set-key "\C-c\C-f" 'lsp-format-buffer)))
 ;;(add-hook 'java-mode-hook 'flycheck-mode)
 

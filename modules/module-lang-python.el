@@ -5,7 +5,11 @@
 	  (lambda ()
 	    (lsp)))
 
-(setq python-shell-interpreter "/usr/bin/python3")
+;;(setq python-shell-interpreter "/usr/bin/python3")
+
+(use-package pyvenv
+  :commands (pyvenv-activate
+	     pyvenv-workon))
 
 ;;(add-hook 'ein:notebook-mode-hook
 ;;	  (lambda ()

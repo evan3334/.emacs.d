@@ -13,7 +13,7 @@
 (setq gc-cons-threshold most-positive-fixnum)
 
 ;; Unsure why I have to do this. Will submit a bug report later.
-(set-time-zone-rule "GMT+8")
+(set-time-zone-rule "GMT+7")
 
 ;; ----------------
 ;; Configure package sources
@@ -101,8 +101,9 @@ There are two things you can do about this warning:
 (require 'module-lang-coq)
 (require 'module-pdf)
 (require 'module-org)
-(require 'module-telegram)
+(require 'module-chat)
 (require 'module-email)
+(require 'module-tex)
 (require 'module-misc)
 
 ;; ----------------
