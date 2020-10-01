@@ -46,7 +46,7 @@
   (add-to-list 'yas-snippet-dirs (concat guix-checkout "/etc/snippets")))
 
 (use-package racket-mode
-  :mode "\\.rkt\\'"
+  :mode ("\\.rkt\\'")
   :hook (((racket-mode
 	   racket-repl-mode) . (lambda ()
 				 (rainbow-delimiters-mode)
@@ -57,5 +57,8 @@
   (setq prettify-symbols-alist '(("lambda" . 955)
 				 ("->" . 8594)))
   (prettify-symbols-mode))
+
+(use-package scribble-mode
+  :mode ("\\.scrbl\\'"))
 
 (provide 'module-lang-scheme)
