@@ -19,6 +19,9 @@
   :bind ("C-x C-o" . ace-window)
   :hook (emacs-startup . ace-window-display-mode))
 
+(use-package dired
+  :config (setq dired-dwim-target t))
+
 (use-package transient
   :init
   (defun find-code-dir ()
