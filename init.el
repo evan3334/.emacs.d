@@ -77,6 +77,7 @@ There are two things you can do about this warning:
       (expand-file-name "thirdparty" user-emacs-directory))
 
 (add-to-list 'load-path modules-dir)
+(add-to-list 'load-path thirdparty-dir)
 
 (defun open-dotfile ()
   "Opens the init.el file quickly."

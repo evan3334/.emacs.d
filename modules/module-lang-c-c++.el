@@ -7,7 +7,8 @@
      (c-offsets-alist . ((substatement-open . 0)
 			 (innamespace . 0)
 			 (inclass . +)
-			 (access-label . --))))))
+			 (access-label . --)))))
+  (require 'google-c-style))
 
 (use-package clang-format
   :commands (clang-format-buffer
