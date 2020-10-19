@@ -9,7 +9,6 @@
 	 (coq-mode . setup-pg-fonts)))
 
 (use-package company-coq
-  :ensure t
   :commands (company-coq-mode)
   :hook ((coq-mode . company-coq-mode)
 	 (company-coq-mode . (lambda () (company-quickhelp-mode -1)))))
