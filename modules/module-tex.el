@@ -13,7 +13,9 @@
   :hook ((LaTeX-mode . (lambda ()
 			 (latex-math-mode)
 			 (auto-fill-mode)
-			 (setq fill-column 90))))
+			 (setq fill-column 90)
+			 (yas-minor-mode)
+			 (lsp))))
   :bind (:map LaTeX-math-mode-map
 	      ("` =" . LaTeX-math-equiv)
 	      ("` !" . LaTeX-math-neg)
