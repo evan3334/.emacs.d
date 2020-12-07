@@ -42,6 +42,9 @@
 	   (require 'ccls)
 	   (lsp))))
 
+(add-hook 'c-mode-common-hook '(lambda ()
+				 (setq-default tab-width 4)))
+
 (use-package cmake-mode)
 
 (provide 'module-lang-c-c++)
