@@ -17,8 +17,7 @@
 
 (use-package lsp-mode
   :commands (lsp)
-  :hook ((java-mode . lsp)
-		 (java-mode . lsp-java-lens-mode)))
+  :hook ((java-mode . lsp)))
 
 (use-package gradle-mode :ensure t
   :commands (gradle-run))
