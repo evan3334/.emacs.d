@@ -1,4 +1,5 @@
 (use-package lua-mode
-  :ensure t)
+  :commands (lua-mode)
+  :mode ("\\.lua\\'" . lua-mode))
 
 (provide 'module-lang-lua)
