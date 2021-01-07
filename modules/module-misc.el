@@ -1,6 +1,9 @@
 (use-package csv-mode
   :defer t)
 
+(use-package yaml-mode
+  :defer t)
+
 (use-package ediff
   :defer t
   :config
