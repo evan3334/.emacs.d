@@ -26,7 +26,6 @@
   (defun yas-commit-editmsg ()
     (when (string= (buffer-name) "COMMIT_EDITMSG")
       (yas-minor-mode-on)))
-  (add-to-list 'yas-snippet-dirs "~/.guix-profile/share/emacs/yasnippet-snippets")
   :commands (yas-minor-mode)
   :hook ((prog-mode . yas-minor-mode)
 	 (text-mode . yas-commit-editmsg)
