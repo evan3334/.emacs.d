@@ -40,6 +40,10 @@
     (interactive)
     (let ((default-directory "~/.emacs.d/modules/"))
       (call-interactively 'find-file)))
+  (defun find-manifest-file ()
+    (interactive)
+    (let ((default-directory "~/Sync/code/manifest/"))
+      (call-interactively 'find-file)))
   (defun visit-file-truename ()
     (interactive)
     (if (eq major-mode 'dired-mode)
@@ -55,6 +59,7 @@
      ("s" "Open school directory" find-school-dir)
      ("i" "Open init file" open-dotfile)
      ("m" "Open init module" find-init-module)
+     ("p" "Open Guix manifest file" find-manifest-file)
      ("g" "Open guix checkout" find-guix-dir)]
     ["Common commands"
      ("a" "Org Agenda" org-agenda)
