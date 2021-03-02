@@ -42,7 +42,7 @@ result as a list of file paths, represented as strings."
 	 '("~/Sync/notes/")
 	 (org-agenda-search-directory "~/Sync/school/current")))
   
-  (setq org-agenda-start-on-weekday 6
+  (setq org-agenda-start-on-weekday 0
 	org-deadline-warning-days 6
 	org-columns-default-format "%ITEM %TODO %3PRIORITY %CLOCKSUM(Time) %Effort %TAGS"))
 
