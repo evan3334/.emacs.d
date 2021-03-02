@@ -1,9 +1,12 @@
 (use-package ein
-  :ensure t)
+  :ensure t
+  :mode ("\\.ipynb\\'" . ein:ipynb-mode)
+  :commands (ein:run))
 
-(add-hook 'python-mode-hook
-	  (lambda ()
-	    (lsp)))
+(use-package python
+  :hook (python-mode . lsp)
+  :mode ("\\.py\\'" . python-mode)
+  :config (setq python-shell-interpreter "python3"))
 
 ;;(setq python-shell-interpreter "/usr/bin/python3")
 
