@@ -15,6 +15,8 @@
 
 (use-package lsp-mode
   :commands (lsp)
+  :bind (:map lsp-mode-map
+	      ("C-c C-r" . lsp-rename))
   :config
   (setq lsp-file-watch-threshold 3000)
   (use-package lsp-ui)
