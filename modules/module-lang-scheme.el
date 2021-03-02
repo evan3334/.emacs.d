@@ -47,6 +47,8 @@
 
 (use-package racket-mode
   :mode ("\\.rkt\\'")
+  :bind (:map racket-mode-map
+	      ("C-c C-." . racket-xp-describe))
   :hook (((racket-mode
 	   racket-repl-mode) . (lambda ()
 				 (rainbow-delimiters-mode)
