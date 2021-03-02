@@ -22,6 +22,11 @@
   :commands (ocp-indent-buffer)
   :ensure t)
 
+(use-package ocamlformat
+  :commands (ocamlformat)
+  :load-path "~/.opam/default/share/emacs/site-lisp"
+  :custom (ocamlformat-enable 'enable-outside-detected-project))
+
 (use-package utop
   :ensure t
   :commands (utop
