@@ -12,8 +12,19 @@
 (require 'google-c-style)
 
 (use-package clang-format
+  :init
+  (defun clang-format-auto ()
+	"Calls the appropriate clang-format function depending on
+  whether or not a region is selected. If a region is selected,
+  will apply clang-format-region to that region only; otherwise,
+  will format the whole buffer."
+	(interactive)
+	(if (region-active-p)
+		(clang-format-region (region-beginning) (region-end))
+	  (clang-format-buffer)))
   :commands (clang-format-buffer
-	     clang-format-region))
+			 clang-format-region
+			 clang-format-auto))
 
 ;; ---------------
 ;; CCLS configuration (C/C++)
@@ -32,15 +43,16 @@
   (setq ccls-args '("--log-file=/tmp/ccls.log"
 		    "-v=1"))
   ;;		    "--init={\"compilationDatabaseDirectory\": \"build\"}"))
-  ;;(setq ccls-initialization-options '(:clang (:extraArgs '("--gcc-toolchain" "/usr"))))
-  :bind (:map c-mode-map
-	 ("C-c C-f" . clang-format-buffer)
-	 :map c++-mode-map
-	 ("C-c C-f" . clang-format-buffer))
+  ;
+;(setq ccls-initialization-options '(:clang (:extraArgs '("--gcc-toolchain" "/usr"))))
   :hook ((c-mode c++-mode objc-mode) .
          (lambda ()
-	   (require 'ccls)
-	   (lsp))))
+		   (require 'ccls)
+		   (lsp)))
+  :bind (:map c-mode-map
+		 ("C-c C-f" . clang-format-auto)
+		 :map c++-mode-map
+		 ("C-c C-f" . clang-format-auto)))
 
 (add-hook 'c-mode-common-hook '(lambda ()
 				 (setq-default tab-width 4)))
