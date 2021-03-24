@@ -8,8 +8,7 @@
   :hook ((coq-mode . proofgeneral)
 	 (coq-mode . setup-pg-fonts)))
 
-(use-package company-math
-  :ensure t)
+(use-package company-math)
 
 (use-package company-coq
   :commands (company-coq-mode)

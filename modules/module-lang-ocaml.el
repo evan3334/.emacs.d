@@ -3,19 +3,16 @@
 ;; ----------
 
 (use-package tuareg
-  :ensure t
   :commands (tuareg-mode)
   :mode (("\\.ml[ily]?$" . tuareg-mode)
 	 ("\\.topml$" . tuareg-mode)))
 
 (use-package merlin
-  :ensure t
   :commands (merlin-mode)
   :config
   (setq merlin-use-auto-complete-mode t)
   (setq merlin-error-after-save nil)
-  (use-package merlin-eldoc
-    :ensure t)
+  (use-package merlin-eldoc)
   :hook (tuareg-mode . merlin-mode))
 
 (use-package ocp-indent
@@ -36,7 +33,6 @@
 	 (utop-mode . company-mode)))
 
 (use-package dune
-  :ensure t
   :commands (dune-mode)
   :mode ("dune" . dune-mode))
 

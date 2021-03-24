@@ -1,7 +1,7 @@
 ;; ---------------
 ;; LSP Java Configuration
 ;; ---------------
-(use-package lsp-java :ensure t :after lsp-mode
+(use-package lsp-java :after lsp-mode
   :commands (lsp-java-lens-mode)
   :config
   (setq lsp-java-server-install-dir
@@ -26,7 +26,7 @@
   :commands (flycheck-mode)
   :hook (java-mode . flycheck-mode))
 
-(use-package dap-mode :ensure t :after lsp-mode
+(use-package dap-mode :after lsp-mode
   :commands (dap-mode)
   :hook (java-mode . dap-mode)
   :config (dap-auto-configure-mode))
