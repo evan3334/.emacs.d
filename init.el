@@ -54,26 +54,9 @@ There are two things you can do about this warning:
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-;; ---------------
-;; Install selected packages that aren't installed
-;; ---------------
-(defun ensure-packages-installed (packages)
-  "Installs a list of packages if they aren't already installed."
-  (when (not (eq packages nil))
-    (let ((package (car packages)))
-      (when (not (package-installed-p package))
-	  (package-install package)))
-    (ensure-packages-installed (cdr packages))))
-
-;;(condition-case nil
-;;  (ensure-packages-installed package-selected-packages)
-;;  (error
-;;   (package-refresh-contents)
-;;   (ensure-packages-installed package-selected-packages)))
-
-(setq modules-dir
+(defvar modules-dir
       (expand-file-name "modules" user-emacs-directory))
-(setq thirdparty-dir
+(defvar thirdparty-dir
       (expand-file-name "thirdparty" user-emacs-directory))
 
 (add-to-list 'load-path modules-dir)
