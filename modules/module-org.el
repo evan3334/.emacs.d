@@ -61,7 +61,8 @@ result as a list of file paths, represented as strings."
 	  ("homework" . ?h)
 	  ("project" . ?p)
 	  ("event" . ?e)
-	  (:endgroup . nil))))
+	  (:endgroup . nil)))
+  :hook (org-mode . auto-fill-mode))
 
 
 (provide 'module-org)
