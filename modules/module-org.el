@@ -1,5 +1,5 @@
 (defun org-get-agenda-file-buffers ()
-  "Returns all open agenda file buffers."
+  "Return all open agenda file buffers."
   (mapcar (lambda (file)
 	    (org-get-agenda-file-buffer file))
 	  org-agenda-files))
@@ -14,7 +14,8 @@
 
 (defun org-agenda-redo-or-revert (&optional revert)
   "Rebuild all agenda views in the current buffer.
-With a prefix argument, revert all agenda buffers before doing so."
+With a prefix argument (REVERT), revert all agenda buffers before
+doing so."
   (interactive "P")
   (if revert
       (progn
@@ -28,9 +29,10 @@ With a prefix argument, revert all agenda buffers before doing so."
   	      ("g" . org-agenda-redo-or-revert))
   :config
   (defun org-agenda-search-directory (dir)
-    "Recursively searches the given directory and all subdirectories for 
-org agenda files that match `org-agenda-file-regexp' and returns the
-result as a list of file paths, represented as strings."
+    "Recursively searches the given DIR and all subdirectories
+for org agenda files that match `org-agenda-file-regexp' and
+returns the result as a list of file paths, represented as
+strings."
     (if (stringp dir)
 	(if (and (file-exists-p dir) (file-directory-p dir))
 	    (directory-files-recursively (file-truename dir) org-agenda-file-regexp)
