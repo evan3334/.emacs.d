@@ -23,6 +23,12 @@ doing so."
 	(org-agenda-redo-all))
     (org-agenda-redo-all)))
 
+(defun my/org-agenda-list-exclude-tags-advice (orig-fn &rest args)
+  "Exclude selected tags from `org-agenda-list'.
+Intended as :around advice for `org-agenda-list'."
+  (let ((org-agenda-tag-filter-preset '("-noagenda")))
+    (apply orig-fn args)))
+
 (use-package org-agenda
   :commands (org-agenda)
   :bind (:map org-agenda-mode-map
@@ -38,6 +44,8 @@ strings."
 	    (directory-files-recursively (file-truename dir) org-agenda-file-regexp)
 	  (error "Argument %s does not refer to an existing directory" dir))
       (error "Invalid argument %s in org-agenda-search-directory, string required" dir)))
+
+  (advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)
   
   (setq org-agenda-files
 	(append
