@@ -104,4 +104,7 @@
   (toggle-read-only))
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
 
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode))
+
 (provide 'module-lang-general)
