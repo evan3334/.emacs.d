@@ -68,12 +68,12 @@
 ;; Generic configuration for all languages
 ;; ---------------
 
-(use-package column-enforce-mode
-  :commands (column-enforce-mode)
-  :ensure t
-  :config
-  (setq column-enforce-column 95)
-  :hook prog-mode)
+;;*  (use-package column-enforce-mode
+;;*    :commands (column-enforce-mode)
+;;*    :ensure t
+;;*    :config
+;;*    (setq column-enforce-column 95)
+;;*    :hook prog-mode)
 
 (global-hl-line-mode)
 (column-number-mode)
@@ -91,7 +91,8 @@
 	  '(lambda ()
 	     (linum-mode)
 	     (auto-fill-mode)
-	     (setq fill-column 95)))
+	     (setq fill-column 95)
+	     (display-fill-column-indicator-mode)))
 
 (use-package realgud
   :commands (realgud:gdb))
