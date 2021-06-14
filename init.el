@@ -94,4 +94,4 @@ There are two things you can do about this warning:
 ;; ----------------
 ;; Return GC threshold to normal
 ;; ----------------
-(setq gc-cons-threshold 800000)
+(setq gc-cons-threshold 1000000)
