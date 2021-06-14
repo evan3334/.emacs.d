@@ -28,6 +28,15 @@ of a light theme."
       (dark-mode-off)
     (dark-mode-on)))
 
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-center-content t)
+  (setq dashboard-items '((recents  . 5)
+                          (projects . 5)
+			  (bookmarks . 5)
+                          (agenda . 5))))
+
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t      ; If nil, bold is universally disabled

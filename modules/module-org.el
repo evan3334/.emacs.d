@@ -46,11 +46,14 @@ strings."
       (error "Invalid argument %s in org-agenda-search-directory, string required" dir)))
 
   (advice-add #'org-agenda-list :around #'my/org-agenda-list-exclude-tags-advice)
-  
-  (setq org-agenda-files
-	(append
-	 '("~/Sync/notes/")
-	 (org-agenda-search-directory "~/Sync/school/current")))
+  (defun org-agenda-refresh-files-list ()
+    (interactive)
+    (setq org-agenda-files
+	  (append
+	   (org-agenda-search-directory "~/Sync/notes/")
+	   (org-agenda-search-directory "~/Sync/school/current")))
+    (setq recentf-exclude (org-agenda-files)))
+  (org-agenda-refresh-files-list)
   
   (setq org-agenda-start-on-weekday 0
 	org-deadline-warning-days 6
