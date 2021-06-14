@@ -12,6 +12,9 @@
 (use-package debbugs
   :commands (debbugs-gnu))
 
+(use-package disk-usage
+  :commands (disk-usage disk-usage-here))
+
 (use-package ace-window
   :commands (ace-window
 	     ace-window-display-mode)
@@ -74,5 +77,7 @@
   (let ((process-environment tramp-remote-process-environment))
     (setenv "ENV" "$HOME/.profile")
     (setq tramp-remote-process-environment process-environment)))
+
+(global-set-key (kbd "C-x <f5>") #'revert-buffer)
   
 (provide 'module-misc)
