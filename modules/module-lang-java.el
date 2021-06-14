@@ -19,6 +19,11 @@
   :commands (lsp)
   :hook ((java-mode . lsp)))
 
+
+(use-package jflex-mode
+  :load-path thirdparty-dir
+  :mode "\\.jflex\\'")
+
 (use-package gradle-mode :ensure t
   :commands (gradle-run))
 
