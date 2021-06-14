@@ -1,5 +1,4 @@
 (use-package ein
-  :ensure t
   :mode ("\\.ipynb\\'" . ein:ipynb-mode)
   :commands (ein:run))
 
