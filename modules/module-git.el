@@ -7,9 +7,9 @@
   (setq magit-commit-arguments '("-S")
 	transient-default-level 6))
 
-(use-package magit-todos
-  :commands (magit-todos-mode)
-  :hook (prog-mode . magit-todos-mode)
-  :after (magit))
+;;*  (use-package magit-todos
+;;*    :commands (magit-todos-mode)
+;;*    :hook (magit-status-mode . magit-todos-mode)
+;;*    :after (magit))
 
 (provide 'module-git)
