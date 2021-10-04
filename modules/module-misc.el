@@ -47,6 +47,10 @@
     (interactive)
     (let ((default-directory "~/Sync/code/manifest/"))
       (call-interactively 'find-file)))
+  (defun find-dotfiles ()
+    (interactive)
+    (let ((default-directory "~/Sync/code/dotfiles/"))
+      (call-interactively 'find-file)))
   (defun visit-file-truename ()
     (interactive)
     (if (eq major-mode 'dired-mode)
@@ -60,10 +64,12 @@
     ["Common directories and files"
      ("c" "Open code directory" find-code-dir)
      ("s" "Open school directory" find-school-dir)
-     ("i" "Open init file" open-dotfile)
-     ("m" "Open init module" find-init-module)
-     ("p" "Open Guix manifest file" find-manifest-file)
      ("g" "Open guix checkout" find-guix-dir)]
+    ["Find configuration files"
+     ("i" "Open init file" open-init-file)
+     ("m" "Open init module" find-init-module)
+     ("d" "Open dotfile" find-dotfiles)
+     ("p" "Open Guix manifest file" find-manifest-file)]
     ["Common commands"
      ("a" "Org Agenda" org-agenda)
      ("M" "Mail" gnus)

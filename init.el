@@ -62,10 +62,10 @@ There are two things you can do about this warning:
 (add-to-list 'load-path modules-dir)
 (add-to-list 'load-path thirdparty-dir)
 
-(defun open-dotfile ()
+(defun open-init-file ()
   "Opens the init.el file quickly."
   (interactive)
-  (find-file "~/.emacs.d/init.el"))
+  (find-file (expand-file-name "init.el" user-emacs-directory)))
 
 (global-set-key "\C-cd" 'open-dotfile)
 
