@@ -63,8 +63,10 @@ strings."
   :config
   (add-to-list 'org-export-backends 'md)
   (require 'org-habit)
-  (setq org-habit-graph-column 55)
-  (setq org-habit-show-habits-only-for-today nil)
+  (setq org-habit-graph-column 55
+	org-habit-show-habits-only-for-today nil
+	org-directory "~/Sync/notes/"
+	org-default-notes-file (expand-file-name "general.org" org-directory))
   (let ((scale 1.5))
     (setq org-format-latex-options
 	  (plist-put (plist-put org-format-latex-options :html-scale scale) :scale scale)))
@@ -81,7 +83,22 @@ strings."
   ;; Below is needed to apply the modified `org-emphasis-regexp-components'
   ;; settings from above.
   (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
-  :hook (org-mode . auto-fill-mode))
-
+  (setq org-capture-templates
+	'(("n" "Quick Note" entry
+	   (file+headline org-default-notes-file "General Notes")
+	   "* Note from %T\n %?%i\n  %a" :empty-lines 1 :kill-buffer t)
+	  ("t" "Quick todo" entry
+	   (file+olp org-default-notes-file "General Agenda" "Other")
+	   "* TODO [B] %?\n %i\n " :empty-lines 1 :kill-buffer t)
+	  ("s" "Shopping list item" item
+	   (file+olp org-default-notes-file "Shopping List" "Unspecified Store")
+	   "- %?%i")))
+  (setq org-refile-targets
+	'((nil :maxlevel . 3)
+          (org-agenda-files :maxlevel . 3)))
+  :hook (org-mode . auto-fill-mode)
+  :bind (("C-x c" . org-capture)
+	 :map org-mode-map
+	 ("C-x w" . org-refile)))
 
 (provide 'module-org)
