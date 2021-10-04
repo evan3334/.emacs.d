@@ -33,4 +33,13 @@
   :commands (sql-connect)
   :hook (sql-interactive-mode . (lambda () (toggle-truncate-lines t))))
 
+(use-package typescript-mode
+  :commands (typescript-mode)
+  :hook (typescript-mode . lsp))
+
+(use-package web-mode
+  :commands (web-mode)
+  :hook (web-mode . lsp)
+  :mode "\\.tsx\\'")
+
 (provide 'module-lang-web)
