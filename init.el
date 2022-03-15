@@ -75,6 +75,7 @@ There are two things you can do about this warning:
 (require 'module-lang-java)
 (require 'module-lang-c-c++)
 (require 'module-lang-cl)
+(require 'module-lang-csharp)
 (require 'module-lang-scheme)
 (require 'module-lang-web)
 (require 'module-lang-python)
