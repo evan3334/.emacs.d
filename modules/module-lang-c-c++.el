@@ -7,7 +7,8 @@
      (c-offsets-alist . ((substatement-open . 0)
 			 (innamespace . 0)
 			 (inclass . +)
-			 (access-label . --))))))
+			 (access-label . --)
+			 (case-label . +))))))
 
 (require 'google-c-style)
 
