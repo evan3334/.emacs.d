@@ -122,5 +122,9 @@
 	  (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x 6") #'toggle-window-split)
+
+(use-package esup
+  :commands (esup))
+  ;;*  :config (setq esup-depth 0))
   
 (provide 'module-misc)
