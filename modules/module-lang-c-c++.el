@@ -11,6 +11,13 @@
 
 (require 'google-c-style)
 
+(use-package glsl-mode
+  :mode ("\\.frag\\'" . glsl-mode))
+(use-package company-glsl
+  :config
+  (when (executable-find "glslangValidator")
+    (add-to-list 'company-backends 'company-glsl)))
+
 (use-package clang-format
   :init
   (defun clang-format-auto ()
