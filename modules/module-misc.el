@@ -44,10 +44,10 @@
     (find-file "~/Sync/code/"))
   (defun find-school-dir ()
     (interactive)
-    (find-file "~/Sync/school/"))
+    (find-file "~/Documents/school/"))
   (defun find-guix-dir ()
     (interactive)
-    (find-file "~/Sync/code/guix/"))
+    (find-file "~/Sync/code/guix-channel/"))
   (defun find-init-module ()
     (interactive)
     (let ((default-directory "~/.emacs.d/modules/"))
@@ -73,7 +73,7 @@
     ["Common directories and files"
      ("c" "Open code directory" find-code-dir)
      ("s" "Open school directory" find-school-dir)
-     ("g" "Open guix checkout" find-guix-dir)]
+     ("g" "Open guix channel" find-guix-dir)]
     ["Find configuration files"
      ("i" "Open init file" open-init-file)
      ("m" "Open init module" find-init-module)

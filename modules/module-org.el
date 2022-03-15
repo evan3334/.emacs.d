@@ -50,8 +50,8 @@ strings."
     (interactive)
     (setq org-agenda-files
 	  (append
-	   (org-agenda-search-directory "~/Sync/notes/")
-	   (org-agenda-search-directory "~/Sync/school/current")))
+	   (org-agenda-search-directory "~/Documents/notes")
+	   (org-agenda-search-directory "~/Documents/school/current")))
     (setq recentf-exclude (org-agenda-files)))
   (org-agenda-refresh-files-list)
   
@@ -65,7 +65,7 @@ strings."
   (require 'org-habit)
   (setq org-habit-graph-column 55
 	org-habit-show-habits-only-for-today nil
-	org-directory "~/Sync/notes/"
+	org-directory "~/Documents/notes/"
 	org-default-notes-file (expand-file-name "general.org" org-directory))
   (let ((scale 1.5))
     (setq org-format-latex-options
