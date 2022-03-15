@@ -44,14 +44,21 @@
   ;; make it safe to set ccls-args in .dir-locals.el files
   ;;(put 'ccls-args 'safe-local-variable #'listp)
   :config
-  (setq ccls-executable "/usr/bin/ccls")
+  (setq ccls-executable "/usr/local/bin/ccls")
   (setq company-minimum-prefix-length 1
-	company-idle-delay 0.0)
+		company-idle-delay 0.0)
   (setq ccls-args '("--log-file=/tmp/ccls.log"
-		    "-v=1"))
+					"-v=1"))
+  (setq ccls-initialization-options
+		'(:compilationDatabaseDirectory
+		  "build"
+		  :clang (:excludeArgs ["-fstrict-volatile-bitfields"
+								"-mlongcalls"
+								"-mfix-esp32-psram-cache-issue"]
+				  :extraArgs ["--gcc-toolchain=/usr"])))
   ;;		    "--init={\"compilationDatabaseDirectory\": \"build\"}"))
   ;
-;(setq ccls-initialization-options '(:clang (:extraArgs '("--gcc-toolchain" "/usr"))))
+;;*  (setq ccls-initialization-options '(:clang (:extraArgs '("--gcc-toolchain" "/usr"))))
   :hook ((c-mode c++-mode objc-mode) .
          (lambda ()
 		   (require 'ccls)
