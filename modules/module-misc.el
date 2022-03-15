@@ -4,6 +4,15 @@
 (use-package yaml-mode
   :defer t)
 
+(use-package graphviz-dot-mode
+  :config
+  (setq graphviz-dot-indent-width 4)
+  :commands (graphviz-dot-mode)
+  :defer t)
+
+(use-package company-graphviz-dot
+  :defer t)
+
 (use-package ediff
   :defer t
   :config
