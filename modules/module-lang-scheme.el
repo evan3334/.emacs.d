@@ -6,6 +6,9 @@
 (defvar guix-checkout "~/Sync/code/guix"
   "The location of the local Guix checkout.")
 
+(defvar guix-load-path "~/.config/guix/current/share/guile/site/3.0"
+  "The location of Guix Scheme modules.")
+
 (use-package geiser
   :commands (geiser
 	     run-geiser)
@@ -13,7 +16,8 @@
   (put 'geiser-guile-load-path 'safe-local-variable #'listp)
   (setq geiser-active-implementations '(guile racket chicken))
   (with-eval-after-load 'geiser-guile
-    (add-to-list 'geiser-guile-load-path guix-checkout))
+    (add-to-list 'geiser-guile-load-path guix-checkout)
+    (add-to-list 'geiser-guile-load-path guix-load-path))
   :config
   (defun setup-scheme-style ()
     (put 'eval-when 'scheme-indent-function 1)
