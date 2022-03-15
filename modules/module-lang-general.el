@@ -16,22 +16,21 @@
 (use-package lsp-mode
   :commands (lsp)
   :bind (:map lsp-mode-map
-	      ("C-c C-r" . lsp-rename))
+			  ("C-c C-r" . lsp-rename))
   :config
   (setq lsp-file-watch-threshold 3000)
-  (use-package lsp-ui)
-  (use-package hydra)
-  (use-package company-lsp))
+  (setq read-process-output-max (* 1024 1024))
+  (use-package lsp-ui :commands lsp-ui-mode))
 
 (use-package yasnippet
   :config
+  (yas-reload-all)
   (defun yas-commit-editmsg ()
     (when (string= (buffer-name) "COMMIT_EDITMSG")
       (yas-minor-mode-on)))
   :commands (yas-minor-mode)
   :hook ((prog-mode . yas-minor-mode)
-	 (text-mode . yas-commit-editmsg)
-	 (yas-minor-mode . yas-reload-all)))
+	 (text-mode . yas-commit-editmsg)))
 
 (use-package company
   :commands (company-mode)
