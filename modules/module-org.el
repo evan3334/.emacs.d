@@ -89,14 +89,15 @@ strings."
 	   "* Note from %T\n %?%i\n  %a" :empty-lines 1 :kill-buffer t)
 	  ("t" "Quick todo" entry
 	   (file+olp org-default-notes-file "General Agenda" "Other")
-	   "* TODO [B] %?\n %i\n " :empty-lines 1 :kill-buffer t)
+	   "* TODO [#B] %?\n %i\n " :empty-lines 1 :kill-buffer t)
 	  ("s" "Shopping list item" item
 	   (file+olp org-default-notes-file "Shopping List" "Unspecified Store")
 	   "- %?%i")))
   (setq org-refile-targets
 	'((nil :maxlevel . 3)
           (org-agenda-files :maxlevel . 3)))
-  :hook (org-mode . auto-fill-mode)
+  :hook ((org-mode . auto-fill-mode)
+	 (org-mode . org-indent-mode))
   :bind (("C-x c" . org-capture)
 	 :map org-mode-map
 	 ("C-x w" . org-refile)))
