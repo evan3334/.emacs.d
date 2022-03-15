@@ -32,9 +32,8 @@ of a light theme."
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-center-content t)
-  (setq dashboard-items '((recents  . 5)
+  (setq dashboard-items '((recents  . 10)
                           (projects . 10)
-			  (bookmarks . 3)
                           (agenda . 7))))
 
 (use-package doom-themes
