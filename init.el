@@ -85,6 +85,7 @@ There are two things you can do about this warning:
 (require 'module-lang-lua)
 (require 'module-lang-coq)
 (require 'module-lang-asm)
+(require 'module-ledger)
 (require 'module-pdf)
 (require 'module-org)
 (require 'module-chat)
