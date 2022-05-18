@@ -45,6 +45,12 @@
   (defun find-school-dir ()
     (interactive)
     (find-file "~/Documents/school/"))
+  (defun find-notes-dir ()
+    (interactive)
+    (find-file "~/Documents/notes/"))
+  (defun find-robotics-dir ()
+	(interactive)
+	(find-file "~/Sync/code/robotics/"))
   (defun find-guix-dir ()
     (interactive)
     (find-file "~/Sync/code/guix-channel/"))
@@ -73,6 +79,8 @@
     ["Common directories and files"
      ("c" "Open code directory" find-code-dir)
      ("s" "Open school directory" find-school-dir)
+	 ("r" "Open robotics directory" find-robotics-dir)
+     ("n" "Open notes directory" find-notes-dir)
      ("g" "Open guix channel" find-guix-dir)]
     ["Find configuration files"
      ("i" "Open init file" open-init-file)
