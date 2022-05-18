@@ -1,6 +1,9 @@
 (use-package magit
   :commands (magit-status
 	     magit-commit)
+  :init
+  (put 'magit-log-mode 'magit-log-default-arguments
+     '("--graph" "-n256" "--decorate --show-signature"))
   :bind
   ("C-x g" . magit-status)
   :config
