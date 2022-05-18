@@ -1,11 +1,19 @@
 ;; ---------------
 ;; LSP Java Configuration
 ;; ---------------
-(use-package lsp-java :after lsp-mode
+(use-package lsp-java
   :commands (lsp-java-lens-mode)
+  :hook ((java-mode . lsp))
   :config
-  (setq lsp-java-server-install-dir
-	(expand-file-name "eclipse.jdt.ls" user-emacs-directory))
+  (setq lsp-java-vmargs
+	'("-noverify"
+	  "-Xmx1G"
+	  "-XX:+UseG1GC"
+	  "-XX:+UseStringDeduplication"
+	  "-javaagent:/home/evan/Documents/school/current/CSE452/lombok.jar"
+	  "-Xbootclasspath/a:/home/evan/Documents/school/current/CSE452/lombok.jar"))
+  ;;*  (setq lsp-java-server-install-dir
+  ;;*  	(expand-file-name "eclipse.jdt.ls" user-emacs-directory))
   (setq lsp-java-import-gradle-enabled nil)
   (setq tab-width 4)
   (use-package lsp-treemacs)
@@ -15,9 +23,9 @@
 	      ("C-c RET" . lsp-execute-code-action)
 	      ("C-c C-f" . lsp-format-buffer)))
 
-(use-package lsp-mode
-  :commands (lsp)
-  :hook ((java-mode . lsp)))
+;;*  (use-package lsp-mode
+;;*    :commands (lsp)
+;;*    :hook ((java-mode . lsp)))
 
 
 (use-package jflex-mode
