@@ -14,13 +14,22 @@
   :commands (neotree))
 
 (use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "M-l")
   :commands (lsp)
   :bind (:map lsp-mode-map
 			  ("C-c C-r" . lsp-rename))
   :config
   (setq lsp-file-watch-threshold 3000)
   (setq read-process-output-max (* 1024 1024))
-  (use-package lsp-ui :commands lsp-ui-mode))
+  :hook ((lsp-mode . lsp-enable-which-key-integration)))
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
+(use-package lsp-ui
+  :commands (lsp-ui-mode))
 
 (use-package yasnippet
   :config
