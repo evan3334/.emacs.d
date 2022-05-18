@@ -57,7 +57,7 @@ strings."
   
   (setq org-agenda-start-on-weekday 0
 	org-deadline-warning-days 6
-	org-columns-default-format "%ITEM %TODO %3PRIORITY %CLOCKSUM(Time) %Effort %TAGS"))
+	org-columns-default-format "%ITEM %TODO %3PRIORITY %CLOCKSUM(Time) %Effort{:} %TAGS"))
 
 (use-package org
   :config
