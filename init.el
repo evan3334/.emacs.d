@@ -12,9 +12,6 @@
 ;; ----------------
 (setq gc-cons-threshold most-positive-fixnum)
 
-;; Unsure why I have to do this. Will submit a bug report later.
-(set-time-zone-rule "GMT+7")
-
 ;; ----------------
 ;; Configure package sources
 ;; ----------------
