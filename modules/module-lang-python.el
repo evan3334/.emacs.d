@@ -1,6 +1,7 @@
 (use-package ein
   :mode ("\\.ipynb\\'" . ein:ipynb-mode)
-  :commands (ein:run))
+  :commands (ein:run)
+  :custom (ein:output-area-inlined-images t))
 
 (use-package python
   :hook (python-mode . lsp)
