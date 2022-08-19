@@ -45,6 +45,7 @@
   :commands (company-mode)
   :config
   (setq company-idle-delay 0.1)
+  (delete 'company-clang company-backends)
   :hook (prog-mode . company-mode)
   :bind (:map company-active-map
 	      ("M-n" . nil)
