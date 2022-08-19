@@ -5,6 +5,7 @@
 (use-package proof-general
   :ensure t
   :commands (proofgeneral)
+  :custom ((coq-compile-before-require t))
   :hook ((coq-mode . proofgeneral)
 	 (coq-mode . setup-pg-fonts)))
 
