@@ -16,3 +16,4 @@ games
 *.elc
 /custom.el
 /recentf
+/org-roam.db

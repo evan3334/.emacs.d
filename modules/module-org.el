@@ -97,9 +97,16 @@ strings."
 	'((nil :maxlevel . 3)
           (org-agenda-files :maxlevel . 3)))
   :hook ((org-mode . auto-fill-mode)
-	 (org-mode . org-indent-mode))
+	 (org-mode . org-indent-mode)
+	 (org-mode . company-mode))
   :bind (("C-x c" . org-capture)
 	 :map org-mode-map
 	 ("C-x w" . org-refile)))
+
+(use-package org-roam
+  :bind (("C-x C-n f" . org-roam-node-find)
+	 ("C-x C-n i" . org-roam-node-insert))
+  :custom (org-roam-directory (expand-file-name "roam" org-directory))
+  :config (org-roam-db-autosync-mode))
 
 (provide 'module-org)
