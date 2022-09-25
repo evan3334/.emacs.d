@@ -9,11 +9,7 @@
 	'("-noverify"
 	  "-Xmx1G"
 	  "-XX:+UseG1GC"
-	  "-XX:+UseStringDeduplication"
-	  "-javaagent:/home/evan/Documents/school/current/CSE452/lombok.jar"
-	  "-Xbootclasspath/a:/home/evan/Documents/school/current/CSE452/lombok.jar"))
-  ;;*  (setq lsp-java-server-install-dir
-  ;;*  	(expand-file-name "eclipse.jdt.ls" user-emacs-directory))
+	  "-XX:+UseStringDeduplication"))
   (setq lsp-java-import-gradle-enabled nil)
   (setq tab-width 4)
   (use-package lsp-treemacs)
@@ -22,11 +18,6 @@
 	      ("C-c C-r" . lsp-rename)
 	      ("C-c RET" . lsp-execute-code-action)
 	      ("C-c C-f" . lsp-format-buffer)))
-
-;;*  (use-package lsp-mode
-;;*    :commands (lsp)
-;;*    :hook ((java-mode . lsp)))
-
 
 (use-package jflex-mode
   :load-path thirdparty-dir
