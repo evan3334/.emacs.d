@@ -64,7 +64,7 @@ of a light theme."
     "`doom-modeline' strangely does not behave in a daemon-session.
 So we need to fix this ourselves."
     (setq doom-modeline-icon t)
-    (setq doom-modeline-height 35))
+    (setq doom-modeline-height 30))
   (add-hook 'after-make-frame-functions #'doom-modeline-daemon)
   :config
   (setq doom-modeline-buffer-file-name-style 'file-name)
@@ -82,6 +82,6 @@ So we need to fix this ourselves."
 (setq split-width-threshold 154)
 
 ;; fix font
-(set-face-attribute 'default nil :height 110 :width 'normal)
+(set-face-attribute 'default nil :height 105 :width 'normal)
 
 (provide 'module-appearance)
