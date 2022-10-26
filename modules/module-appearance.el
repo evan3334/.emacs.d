@@ -28,6 +28,9 @@ of a light theme."
       (dark-mode-off)
     (dark-mode-on)))
 
+;; Display shell/eshell buffers in a new window instead of in the same window
+(push '("\\`\\*e?shell" display-buffer-pop-up-window) display-buffer-alist)
+
 (use-package dashboard
   :config
   (dashboard-setup-startup-hook)
