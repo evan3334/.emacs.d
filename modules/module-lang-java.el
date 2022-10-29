@@ -6,7 +6,7 @@
   :hook ((java-mode . lsp))
   :config
   (setq lsp-java-vmargs
-	'("-noverify"
+	'(;;"-noverify"
 	  "-Xmx1G"
 	  "-XX:+UseG1GC"
 	  "-XX:+UseStringDeduplication"))
