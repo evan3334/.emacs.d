@@ -8,11 +8,10 @@
 	 ("\\.topml$" . tuareg-mode)))
 
 (use-package merlin
+  :load-path "~/.opam/default/share/emacs/site-lisp"
   :commands (merlin-mode)
-  :config
-  (setq merlin-use-auto-complete-mode t)
-  (setq merlin-error-after-save nil)
-  (use-package merlin-eldoc)
+  :custom
+  (merlin-error-after-save nil "Don't check for errors on saving")
   :hook (tuareg-mode . merlin-mode))
 
 (use-package ocp-indent
