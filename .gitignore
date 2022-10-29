@@ -18,3 +18,5 @@ games
 /recentf
 /org-roam.db
 /eln-cache/
+
+/modules/machine-select.el
