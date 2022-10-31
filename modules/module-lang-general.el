@@ -98,11 +98,11 @@
   :hook prog-mode)
 
 (add-hook 'prog-mode-hook
-	  '(lambda ()
-	     (linum-mode)
-	     (auto-fill-mode)
-	     (setq fill-column 95)
-	     (display-fill-column-indicator-mode)))
+	  #'(lambda ()
+	      (linum-mode)
+	      (auto-fill-mode)
+	      (setq fill-column 95)
+	      (display-fill-column-indicator-mode)))
 
 (use-package realgud
   :commands (realgud:gdb))

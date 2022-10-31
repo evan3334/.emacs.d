@@ -104,6 +104,7 @@ strings."
 	 ("C-x w" . org-refile)))
 
 (use-package org-roam
+  :after org
   :bind (("C-x C-n f" . org-roam-node-find)
 	 ("C-x C-n i" . org-roam-node-insert))
   :custom (org-roam-directory (expand-file-name "roam" org-directory))

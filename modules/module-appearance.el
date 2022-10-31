@@ -32,6 +32,8 @@ of a light theme."
 (push '("\\`\\*e?shell" display-buffer-pop-up-window) display-buffer-alist)
 
 (use-package dashboard
+  :init
+  (global-unset-key (kbd "C-x C-n"))
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-center-content t)

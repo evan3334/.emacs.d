@@ -7,6 +7,13 @@
   :mode (("\\.ml[ily]?$" . tuareg-mode)
 	 ("\\.topml$" . tuareg-mode)))
 
+(use-package flycheck-ocaml
+  :after merlin
+  :config (message "Flycheck ocaml loaded")
+  :commands (flycheck-ocaml-setup)
+  :ensure t
+  :hook (tuareg-mode . flycheck-ocaml-setup))
+
 (use-package merlin
   :load-path "~/.opam/default/share/emacs/site-lisp"
   :commands (merlin-mode)
