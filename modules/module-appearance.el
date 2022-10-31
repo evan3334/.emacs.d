@@ -84,6 +84,9 @@ So we need to fix this ourselves."
 (setq split-width-threshold 154)
 
 ;; fix font
-(set-face-attribute 'default nil :height 105 :width 'normal)
+(require 'machine-select)
+(set-face-attribute 'default nil
+		    :height (if (eq machine-select-machine 'desktop) 105 110)
+		    :width 'normal)
 
 (provide 'module-appearance)
