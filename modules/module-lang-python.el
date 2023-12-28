@@ -4,7 +4,7 @@
   :custom (ein:output-area-inlined-images t))
 
 (use-package python
-  :hook (python-mode . lsp)
+  ;;*  :hook (python-mode . lsp)
   :mode ("\\.py\\'" . python-mode)
   :config (setq python-shell-interpreter "python3"))
 
@@ -13,6 +13,12 @@
 (use-package pyvenv
   :commands (pyvenv-activate
 	     pyvenv-workon))
+
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
 
 ;;(add-hook 'ein:notebook-mode-hook
 ;;	  (lambda ()
