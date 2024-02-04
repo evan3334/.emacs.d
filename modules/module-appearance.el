@@ -53,7 +53,7 @@ of a light theme."
     (doom-themes-org-config))
   (doom-themes-init))
 
-(use-package all-the-icons
+(use-package nerd-icons
   :after (doom-themes))
 
 (use-package flymake
@@ -72,7 +72,7 @@ So we need to fix this ourselves."
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (doom-modeline-mode)
   (doom-modeline-daemon)
-  :after (doom-themes all-the-icons))
+  :after (doom-themes nerd-icons))
 
 (use-package org
   :commands (org-agenda)
